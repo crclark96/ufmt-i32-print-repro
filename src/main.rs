@@ -21,11 +21,17 @@ fn main() -> ! {
         57600.into_baudrate(),
     );
 
-    for x in (5..100).step_by(5) {
-        for y in 1..5 {
-            let z = x / y;
-            ufmt::uwriteln!(&mut serial, "{} / {} = {}\r", x, y, z).void_unwrap();
-        }
+    ufmt::uwriteln!(&mut serial, "unsigned 0..80_000\r").void_unwrap();
+
+    for x in (0u32..80_000u32).step_by(10000) {
+        ufmt::uwriteln!(&mut serial, "{}\r", x).void_unwrap();
     }
+
+    ufmt::uwriteln!(&mut serial, "signed 0..80_000\r").void_unwrap();
+
+    for x in (0i32..80_000i32).step_by(10000) {
+        ufmt::uwriteln!(&mut serial, "{}\r", x).void_unwrap();
+    }
+
     loop {}
 }

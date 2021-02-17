@@ -1,5 +1,5 @@
 [package]
-name = "project1"
+name = "ufmt-i32-print-repro"
 version = "0.1.0"
 authors = ["Collin Reilly Clark <crclark96@gmail.com>"]
 edition = "2018"
